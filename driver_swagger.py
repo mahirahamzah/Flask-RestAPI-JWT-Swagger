@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response,session,redirect,url_for
+from flask import Flask, request, jsonify, make_response,session
 from flask_sqlalchemy import SQLAlchemy
 import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
