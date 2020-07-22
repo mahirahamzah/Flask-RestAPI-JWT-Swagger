@@ -5,7 +5,7 @@ Flask==1.0.3
 Flask-JWT-Extended==3.24.1
 flask-restplus==0.12.1
 Flask-SQLAlchemy==2.3.2
-gunicorn==19.3.0
+gunicorn==19.5.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
 jsonschema==3.0.1
