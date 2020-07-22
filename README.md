@@ -17,4 +17,5 @@ Setup
 ## Swagger UI
 Hosted Locally
 http://127.0.0.1:5000/swagger/
+
 Troubleshoot : If error 'No API definition provided': Force refresh http://127.0.0.1:5000/static/swagger.json
