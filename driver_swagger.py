@@ -6,8 +6,25 @@ import jwt
 import datetime
 from functools import wraps
 from markupsafe import escape
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask (__name__)
+
+### swagger specific ###
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "FlaskWebApp"
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+
+### end swagger specific ###
+
+
 app.config['SECRET_KEY'] = 'UNWz5SallYG9TSsdZOmM7CyNOweeEUjE'
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///driverdb.db'
 
