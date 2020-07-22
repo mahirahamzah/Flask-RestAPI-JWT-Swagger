@@ -22,7 +22,7 @@ Setup
 
 - POST /api/v1/auth {'username': '', 'password': ''}
 - Returns JSON with {'access_token':''}  
-- Then request from API using header 'Authorization: JWT $token'
+- Then request from API using header 'x-access-token : $token'
 
 **Tests**
 
