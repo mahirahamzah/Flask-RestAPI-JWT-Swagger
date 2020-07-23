@@ -1,8 +1,7 @@
 # Flask-RestAPI-JWT-Swagger
 Flask REST API backend for admin login with JWT and Swagger UI
 
-Setup
-=====
+## Setup
 
 - Create and activate a vitualenv
 - Run `pip install -r requirements.txt`
@@ -14,23 +13,25 @@ Setup
 2. Admin (login required) can create, delete and update users, driver, vehicles
 3. Password is stored in hashed
 
-# SQLite Database
+## SQLite Database
 I'm using SQLite for database creating a table name driverdb
 
 Installing SQLite guide : https://www.sqlitetutorial.net/download-install-sqlite/
 
-## How to setup database
+**How to setup database**
+
 Create the initial database by import the db object from an interactive Python shell and run the SQLAlchemy.create_all() method to create the tables and database
 
   - `from api.py import db`
   - `db.create_all()`
 
 
-# Swagger UI
+## Swagger UI
 /static/swagger.json
 
 Hosted Locally
 http://127.0.0.1:5000/swagger/
 
-### Troubleshoot
+**Troubleshoot**
+
 If error 'No API definition provided': Force refresh http://127.0.0.1:5000/static/swagger.json
