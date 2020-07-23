@@ -174,7 +174,7 @@ def get_one_driver(driver_id):
     driver_data = {}
     driver_data['id'] = driver.id
     driver_data['name'] = driver.name
-    driver_data['complete'] = driver.complete
+    driver_data['active'] = driver.active
 
     return(driver_data)
 
