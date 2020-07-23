@@ -5,7 +5,7 @@ Flask REST API backend for admin login with JWT and Swagger UI
 
 - Create and activate a vitualenv
 - Run `pip install -r requirements.txt`
-- Start api using `python server.py`
+- Start api using `python api.py`
 
 **Functionality**
 
