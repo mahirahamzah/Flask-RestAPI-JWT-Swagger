@@ -27,6 +27,7 @@ Create the initial database by import the db object from an interactive Python s
 
 
 # Swagger UI
+/static/swagger.json
 Hosted Locally
 http://127.0.0.1:5000/swagger/
 
