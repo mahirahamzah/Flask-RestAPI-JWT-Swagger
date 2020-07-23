@@ -472,7 +472,7 @@
             "format": "uuid"
           }
         }
-      },   
+      },
       "User": {
         "properties": {
           "id": {
@@ -519,6 +519,14 @@
           "platenum": {
             "type": "string",
             "format": "number"
+          },
+          "capacity": {
+            "type": "string",
+            "format": "string"
+          },
+          "driver_id": {
+            "type": "string",
+            "format": "string"
           }
         }
       }
