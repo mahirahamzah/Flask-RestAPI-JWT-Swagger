@@ -101,8 +101,8 @@ def get_all_users(current_user):
 @token_required
 def get_one_user(current_user, public_id):
 
-    if not current_user.admin:
-        return jsonify({'message' : 'Cannot perform that function!'})
+    #if not current_user.admin:
+    #    return jsonify({'message' : 'Cannot perform that function!'})
 
     user = User.query.filter_by(public_id=public_id).first()
 
@@ -133,8 +133,8 @@ def create_user(current_user):
 @token_required
 def delete_user(public_id):
 
-    if not current_user.admin:
-        return jsonify({'message' : 'Cannot perform that function!'})
+    #if not current_user.admin:
+    #    return jsonify({'message' : 'Cannot perform that function!'})
 
     user = User.query.filter_by(public_id=public_id).first()
 
