@@ -18,6 +18,7 @@ I'm using SQLite for database creating a table name driverdb
 
 Installing SQLite guide : https://www.sqlitetutorial.net/download-install-sqlite/
 
+
 **How to setup database**
 
 Create the initial database by import the db object from an interactive Python shell and run the SQLAlchemy.create_all() method to create the tables and database
@@ -31,6 +32,7 @@ Create the initial database by import the db object from an interactive Python s
 
 Hosted Locally
 http://127.0.0.1:5000/swagger/
+
 
 **Troubleshoot**
 
