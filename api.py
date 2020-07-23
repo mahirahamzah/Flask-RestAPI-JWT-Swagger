@@ -118,7 +118,7 @@ def get_one_user(current_user, public_id):
 
 @app.route('/user',methods=['POST'])
 @token_required
-def create_user(current_user):
+def create_user():
     data = request.get_json()
 
     hashed_password = generate_password_hash(data['password'], method='sha256')
@@ -131,7 +131,7 @@ def create_user(current_user):
 
 @app.route('/user/<public_id>', methods=['DELETE'])
 @token_required
-def delete_user(public_id):
+def delete_user(current_user,public_id):
 
     #if not current_user.admin:
     #    return jsonify({'message' : 'Cannot perform that function!'})
@@ -180,10 +180,10 @@ def get_one_driver(driver_id):
 
 @app.route('/driver', methods=['POST'])
 @token_required
-def create_driver(current_user):
+def create_driver():
     data = request.get_json()
 
-    new_driver = Driver(name=data['name'], active=True)
+    new_driver = Driver(name=data['name'], active=False)
     db.session.add(new_driver)
     db.session.commit()
 
@@ -191,16 +191,16 @@ def create_driver(current_user):
 
 @app.route('/driver/<driver_id>',methods=['PUT'])
 @token_required
-def complete_driver(current_user, driver_id):
+def active_driver(current_user, driver_id):
     driver = Driver.query.filter_by(id=driver_id).first()
 
     if not driver:
         return jsonify({'message':'No driver found'})
 
-    driver.complete = True
+    driver.active = True
     db.session.commit()
 
-    return jsonify({'message': 'Driver has been completed'})
+    return jsonify({'message': 'Driver has been actived'})
 
 @app.route('/driver/<driver_id>', methods = ['DELETE'])
 @token_required
@@ -275,15 +275,15 @@ def update_driver(current_user, vehicle_id):
     vehicle.type = data['type']
     vehicle.platenum = data['platenum']
     vehicle.capacity = data['capacity']
-    vehicle.drive_is = data['driver_id']
+    vehicle.drive_id = data['driver_id']
     db.session.commit()
 
     return jsonify({'message': 'Vehicle data has been updates'})
 
 @app.route('/vehicle/<vehicle_id>', methods = ['DELETE'])
 @token_required
-def delete_vehicle(current_user, vehicler_id):
-    vehicle = Vehicle.query.filter_by(id=vehicle).first()
+def delete_vehicle(vehicle_id):
+    vehicle = Vehicle.query.filter_by(id=vehicle_id).first()
 
     if not vehicle:
         return jsonify({'message':'No vehicle found'})
@@ -306,7 +306,7 @@ def login():
         return make_response('Not Admin : Permission Denied', 401,{'WWW-Authenticate': 'Basic realm="Login required!"'})
 
     if check_password_hash(user.password, auth.password):
-        token = jwt.encode({'public_id' : user.public_id, 'exp' :datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+        token = jwt.encode({'public_id' : user.public_id, 'exp' :datetime.datetime.utcnow() + datetime.timedelta(minutes=90)}, app.config['SECRET_KEY'])
 
         return jsonify({'token' : token.decode('UTF-8')})
 
