@@ -21,6 +21,8 @@ Installing SQLite guide : https://www.sqlitetutorial.net/download-install-sqlite
 
 ## How to seup database
 Create the initial database by import the db object from an interactive Python shell and run the SQLAlchemy.create_all() method to create the tables and database
+=====
+
   -`from api.py import db`
   -`db.create_all()`
 
