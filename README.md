@@ -16,12 +16,13 @@ Setup
 
 # SQLite Database
 I'm using SQLite for database creating a table name driverdb
+
 Installing SQLite guide : https://www.sqlitetutorial.net/download-install-sqlite/
 
 ## How to seup database
 Create the initial database by import the db object from an interactive Python shell and run the SQLAlchemy.create_all() method to create the tables and database
-`from api.py import db`
-`db.create_all()`
+-`from api.py import db`
+-`db.create_all()`
 
 
 ## Swagger UI
